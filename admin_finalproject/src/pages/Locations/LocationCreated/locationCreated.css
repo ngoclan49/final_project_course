@@ -1,0 +1,39 @@
+.location__created--form{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    height: 350px;
+}
+
+.location__created--input,
+.location__created--selectItem select{
+    width: 300px;
+    padding: 8.5px 14px;
+    border: .5px solid rgb(106, 104, 104);
+    border-radius: 5px;
+}
+
+.location__created--select,
+.location__created--inputWrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.location__created--image{
+    position: relative;
+}
+
+.location__created--image .location__created--button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #1890ff;
+    border-radius: 10px;
+    color: #fff;
+    padding: .5rem 1rem;
+    border: none;
+}
+
+.location__created--select .css-ahj2mt-MuiTypography-root{
+    margin-top: 1rem !important;
+}

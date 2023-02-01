@@ -1,0 +1,24 @@
+.paginationBtns{
+    justify-content: center;
+}
+.paginationBtns li{
+    padding: 0 1rem;
+    font-weight: bold;
+    color: #909090;
+}
+
+.paginationBtns .selected{
+    background: hsl(187, 85%, 43%);
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    padding: .5rem;
+    margin: 0 .3rem;
+    line-height: 15px;
+    text-align: center;
+}
+
+.paginationBtns .selected:active{
+    transform: scale(1.1);
+}

@@ -1,0 +1,40 @@
+.icon {
+  font-size: 12px !important;
+}
+
+.detail-rating {
+  padding-left: 0;
+}
+
+.detail-rating li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.detail-rating li p,
+.info-room li span,
+.descript-room span {
+  border-bottom: 1px solid;
+}
+
+.info-room li div {
+  margin-left: 10px;
+}
+
+.info-room .air-icon,
+.translate-icon {
+  height: 18px !important;
+  font-size: 30px;
+}
+
+.descript-room .box-translate {
+  height: 30px;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.fa-icon {
+  margin-bottom: 2px;
+  margin-right: 8px;
+}

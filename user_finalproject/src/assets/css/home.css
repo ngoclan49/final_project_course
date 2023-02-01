@@ -1,0 +1,339 @@
+/* CAROUSEL  */
+.carousel {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.carousel .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(47, 106, 127);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    mix-blend-mode: hard-light;
+}
+
+.carousel video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    object-fit: cover;
+}
+
+.carousel .carouselContent {
+    width: 100%;
+    height: max-content;
+    padding: 8rem 1.5rem 3rem;
+    display: flex;
+    row-gap: 3rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+    z-index: 100;
+}
+
+.carousel .carouselContent .textDiv {
+    color: #fff;
+    padding: 2rem 0rem;
+}
+
+.carousel .carouselContent .textDiv .smallText {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.carousel .carouselContent .textDiv .carouselTitle {
+    position: relative;
+    font-size: 1.8rem;
+}
+
+.carousel .carouselContent .cardDiv {
+    position: relative;
+    padding: 2rem 1rem;
+    background: #fff;
+    border-radius: 10px;
+    gap: 1rem;
+}
+.carousel .carouselContent .guest{
+    display: none;
+}
+
+.carousel .carouselContent .cardDiv label {
+    display: block;
+    color: hsl(240, 4%, 36%);
+    padding-bottom: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.carousel .carouselContent .cardDiv .searchBar-input {
+    height: 40px;
+    padding: 0 1rem;
+    background: rgb(239, 239, 239);
+    border-radius: 3rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel .carouselContent .searchBar-input-custom{
+    width: 100%;
+
+}
+
+.carousel .carouselContent .searchBar-input-custom input{
+    text-align: center;
+}
+
+.carousel .carouselContent .cardDiv .input input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+
+}
+
+.carousel .carouselContent .cardDiv .input::placeholder {
+    font-size: 13px;
+}
+
+.carousel .carouselContent .cardDiv .input .btn-carousel {
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+
+}
+
+.carousel .carouselContent .icon {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.carousel .searchIconDiv {
+    position: absolute;
+    background: linear-gradient(to right, hsl(187, 85%, 43%),
+            hsl(199, 100%, 33%));
+    width: max-content;
+    bottom: -.7rem;
+    column-gap: .8rem;
+    padding: 5px 1rem;
+    border-radius: 3rem;
+    color: #fff;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carousel .searchIconDiv:hover {
+    background: hsl(199, 100%, 33%);
+}
+
+.carousel .searchIconDiv .icon {
+    font-size: 18px;
+    margin: 0;
+}
+
+.carousel .searchIconDiv span {
+    font-size: 13px;
+}
+
+.carouselFooterIcon {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.carouselFooterIcon .icon {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+    transition: all .5s;
+}
+
+.carouselFooterIcon .icon:hover {
+    color: var(--primary-color);
+}
+
+.dataResult {
+    width: 100%;
+    position: absolute;
+    top: 2.5rem;
+    background-color: #fff;
+    left: 0;
+    height: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    line-height: 2rem;
+    text-align: left;
+    z-index: 100;
+}
+
+/* SMALL CARD  */
+.desCard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.desCard__detail {
+    position: relative;
+    cursor: pointer;
+}
+
+.desCard__detail .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.333);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    mix-blend-mode: hard-light;
+    border-radius: 100rem;
+}
+
+.desCard__detail .desCard__detail--image {
+    width: 100%;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 100rem !important;
+}
+
+.desCard__detail .desCard__detail--text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    text-align: center;
+    z-index: 2;
+}
+
+.desCard__detail .desCard__detail--text h3 {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.paginationBtns {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.paginationBtns .next svg,
+.paginationBtns .previous svg{
+    background: hsl(187, 85%, 43%);
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    padding: .5rem;
+    margin: 0 .3rem;
+}
+
+.paginationBtns a {
+    /* color: #fff !important; */
+    cursor: pointer;
+}
+
+.paginationBtns svg:active {
+    transform: scale(1.1);
+}
+
+
+@media screen and (min-width: 500px) {
+    .carousel .carouselContent .textDiv .smallText {
+        font-size: 16px;
+    }
+
+    .carousel .carouselContent .textDiv .carouselTitle {
+        position: relative;
+        font-size: 2.3rem;
+        width: max-content;
+    }
+
+    .carousel .carouselContent .textDiv .carouselTitle::after {
+        position: absolute;
+        content: '';
+        height: 5px;
+        width: 145px;
+        right: 0px;
+        bottom: -3px;
+        z-index: -1;
+        background: hsl(187, 85%, 43%);
+    }
+
+    .carousel .cardDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .desCard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+@media screen and (min-width: 660px) {
+    .carousel .cardDiv {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+   
+}
+
+@media screen and (min-width: 840px) {
+    .desCard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 940px) {
+    .carousel {
+        height: 95vh;
+    }
+    .desCard {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (min-width: 1240px) {
+
+    .carousel .carouselContent {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .carousel .cardDiv {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .carousel .cardDiv .input {
+        margin-bottom: 1rem;
+    }
+
+    .carousel .cardDiv .searchOptions {
+        bottom: -1rem;
+        padding: 8px 1rem;
+    }
+
+    .carousel .cardDiv .searchOptions span {
+        font-size: 17px;
+    }
+}

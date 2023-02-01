@@ -1,0 +1,217 @@
+.title {
+    position: relative;
+}
+
+.title:after {
+    position: absolute;
+    content: '';
+    background: hsl(187, 85%, 43%);
+    height: 5px;
+    width: 100%;
+    right: 0;
+    bottom: 0px;
+    z-index: -1;
+}
+
+.secContent {
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.secContent .singleDestination {
+    height: 100%;
+    display: grid;
+    row-gap: 10px;
+    border-radius: 10px;
+    align-items: center;
+    background: rgb(225, 225, 235);
+    box-shadow: 0 2px 4px rgba(140, 140, 141, .549);
+    overflow: hidden;
+}
+
+.secContent .singleDestination:hover {
+    background: rgb(255, 255, 255);
+    box-shadow: 1 4px 4px rgba(85, 85, 114, .549);
+    transition: .3s ease;
+}
+
+.secContent .singleDestination .imageDiv {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.secContent .singleDestination img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 2s ease;
+}
+
+.secContent .singleDestination .imageDiv:hover img {
+    transform: scale(1.1);
+}
+
+.secContent .cardInfo {
+    padding: 1rem;
+}
+
+.secContent .cardInfo .desTitle {
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.secContent .cardInfo .continent {
+    gap: .5rem;
+}
+
+.secContent .cardInfo .continent .icon {
+    color: hsl(240, 4%, 36%);
+    font-size: 18px;
+}
+
+.secContent .cardInfo .continent .name {
+    color: hsl(240, 4%, 36%);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.secContent .cardInfo .countries {
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-top: 1.5px solid rgb(190, 190, 190);
+    border-top: 1.5px solid rgb(190, 190, 190);
+    border-bottom: 1.5px solid rgb(190, 190, 190);
+}
+
+
+.secContent .cardInfo .countries .country,
+.secContent .cardInfo .countries .id {
+    padding: .5rem 1rem;
+    background: hsl(199, 100%, 33%);
+    color: #fff;
+    border-radius: 50px;
+}
+
+.secContent .cardInfo .countries .country h5,
+.secContent .cardInfo .countries .id h5 {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.secContent .cardInfo .countries .id {
+    background: hsl(187, 85%, 43%);
+}
+
+.secContent .cardInfo .desc {
+    font-size: 13.5px;
+    color: hsl(240, 4%, 36%);
+    font-weight: 500;
+}
+
+.btnOuline {
+    padding: .6rem 1.5rem;
+    background: linear-gradient(to right, hsl(187, 85%, 43%),
+            hsl(199, 100%, 33%));
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 1rem;
+    justify-content: space-between;
+    gap: .5rem;
+    transition: all .5s;
+}
+
+.btnOuline:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.btnOuline a{
+    color: #fff !important;
+}
+
+.btnOuline .icon {
+    align-self: center;
+    font-size: 18px;
+}
+
+
+.btnOuline a {
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: hsl(187, 85%, 43%);
+    transition: all .5s;
+}
+
+@media screen and (min-width: 500px) {
+
+    .secContent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .singleDestination {
+        height: auto;
+    }
+
+    .secContent .cardInfo .countries .country,
+    .secContent .cardInfo .countries .id {
+        padding: .3rem;
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .secContent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .secContent .singleDestination .imageDiv {
+        height: 180px;
+    }
+
+    .singleDestination {
+        height: auto;
+    }
+
+    .secContent .cardInfo .countries {
+        margin: .5rem 0;
+    }
+
+    .secContent .cardInfo .countries .country,
+    .secContent .cardInfo .countries .id {
+        padding: .5rem 1rem;
+    }
+}
+@media screen and (min-width: 990px) {
+    .secContent {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .secContent .singleDestination .imageDiv {
+        height: 150px;
+    }
+
+    .singleDestination {
+        height: auto;
+    }
+
+    .secContent .cardInfo .countries {
+        margin: 1rem 0;
+    }
+   
+}
+@media screen and (min-width: 1240px) {
+    .secContent {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .secContent .singleDestination .imageDiv {
+        height: 180px;
+    }
+    
+}

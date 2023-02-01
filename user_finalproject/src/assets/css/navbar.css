@@ -1,0 +1,73 @@
+.navBarSection {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    background: hsl(0, 0%, 93%);
+}
+.navBar .flex {
+    color: #909090;
+}
+
+.imageNav{
+    width: 100px;
+}
+
+.navBar .navBar-text{
+    font-size: .9rem;
+    margin-bottom: 0;
+    padding-right: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navBar .icon {
+    font-size: 1.5rem;
+}
+
+.navBar .avatar {
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+} 
+
+.navBar .user {
+    margin-left: .5rem;
+    border: 10px;
+    border-radius: 50px;
+    padding: .5rem;
+    border: 0.025rem solid #909090;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.navBar .user:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.navBar .btn:first-child:hover,
+.navBar  .btn.show, .btn:first-child:active{
+    color: #909090;
+    border: 0.025rem solid #909090;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dropDownMenu{
+    background: hsl(0, 0%, 93%) !important;
+}
+
+.dropDownMenu .dropDownItem{
+    font-size: 13px;
+}
+
+
+.navBar .dropdown-toggle::after{
+    display: none;
+}
+
+
+.linkAuth:hover {
+    color: #000;
+    background-color: transparent;
+}

@@ -1,0 +1,10 @@
+.locationImage img{
+    width: 100px;
+}
+
+.card-grid {
+    width: 30% !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}

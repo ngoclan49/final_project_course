@@ -1,0 +1,62 @@
+.roomImage {
+    width: 50% ;
+    height: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.roomImage img {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 0;
+    transition: all .5s;
+    width: 250px;
+}
+
+.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar p{
+    margin-bottom: 0;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    font-size: .9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+}
+
+.buttonCreate {
+    padding: .5rem 1rem;
+    background-color: #1990FF;
+    color: #fff ;
+    margin-bottom: 10px;
+}
+
+.button span {
+    padding: 0 5px;
+    font-size: 1rem;
+}
+
+.button .buttonDel{
+    color: red;
+}
+
+.button .buttonEdit{
+    color: green;
+}
+
+.button .buttonView {
+    color: purple
+}
+
+.button .buttonDel:hover,
+.button .buttonEdit:hover,
+.button .buttonView:hover{
+    transform: scale(1.1);
+}

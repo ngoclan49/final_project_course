@@ -1,0 +1,25 @@
+.signup .containerLogin {
+    width: 800px;
+    height: 700px;
+}
+.signup .wrapper__login {
+    display: flex;
+    justify-content: space-around;
+}
+
+.signup .form-inline {
+    margin-top: 30px;
+    color: #fff;
+}
+
+.signup .form-inline .radio {
+    margin: 0 10px;
+}
+
+.signup .form-inline .radio span {
+    margin-left: 5px;
+}
+
+.signup .errorMsg{
+    font-size: .5rem;
+}

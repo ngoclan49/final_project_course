@@ -1,0 +1,7 @@
+.userRole,
+.userGender {
+    border-radius: 10px;
+    padding: .2rem .5rem;
+    text-align: center;
+    background-color: rgb(4, 4, 125);
+}

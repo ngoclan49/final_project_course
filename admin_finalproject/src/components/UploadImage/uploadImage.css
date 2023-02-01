@@ -1,0 +1,55 @@
+
+.preview {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 0 20px rgba(170, 170, 170, 0.2);
+}
+
+.preview img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    
+}
+
+.preview label {
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #1890ff;
+}
+
+.preview #file-input {
+    display: none;
+}
+
+.preview-button button{
+    border: none;
+    padding: .5rem 1rem;
+    color: #555;
+    border-radius: 10px;
+
+}
+.preview-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.preview-button .uploadButton{
+    background: #fca61f;
+    margin-right: 10px;
+}
+
+.preview-button .closeButton{
+    background: #FF919D;
+}

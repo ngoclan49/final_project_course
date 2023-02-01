@@ -1,0 +1,246 @@
+.headerSection{
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 1rem;
+    background: hsl(0, 0%, 93%);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.headerSection label{
+    display: none;
+}
+
+.headerSection .btn:hover {
+    border-color: #909090 !important;
+}
+
+.headerSection .guest p{
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.headerSection .guest button,
+.headerSection .guest button:focus{
+    background-color: transparent;
+    color: #000;
+    border: none;
+}
+
+.headerSection .guest button:hover{
+    background: transparent;
+    color: #000;
+}
+
+.headerSection .guest .range {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    width: 200px;
+}
+
+.headerSection .guest .range button {
+    padding: 5px 10px;
+    border: 1px solid #909090;
+    border-radius: 50%;
+}
+
+.headerSection .guest .range span{
+    padding: 0 .3rem;
+}
+
+.headerSection .guest button::after{
+    display: none;
+}
+
+
+.headerSection .form-range{
+    display: none;
+}
+
+.headerLogo{
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo img{
+    width: 100px;
+}
+
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    border: 1px solid hsl(0, 0%, 83%);
+    margin: auto;
+    border-radius: 2rem;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+}
+
+.searchBar:hover{
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 0%);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.searchBar-input {
+    font-size: .8rem;
+    font-weight: 800;
+    border-right: 1px solid hsl(0, 0%, 83%);
+    padding-right: .5rem;
+    background: rgb(239, 239, 239);
+    text-align: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
+
+}
+
+.searchBar-input-custom{
+    width: 170px;
+    text-align: center;
+}
+
+
+.searchBar-input  input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+}
+
+.carousel .carouselContent .cardDiv .input::placeholder {
+    font-size: 13px;
+}
+
+.headerSection .navBar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headerSection .navBar .btn-primary{
+    --bs-btn-border-color:rgb(190, 190, 190) !important;
+}
+
+.searchIconDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff385c;
+    border-radius: 50%;
+    padding: .25rem;
+}
+
+.searchIconDiv .icon {
+    color: #fff;
+    font-size: 24px;
+}
+
+.bottomNav {
+    display: none;
+}
+
+.bottomNav .bottomNav-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.bottomNav .bottomNav-detail {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.bottomNav .bottomNav-detail p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.bottomNav .bottomNav-detail .icon {
+    font-size: 20px;
+}
+
+.bottomNav .bottomNav-detail .icon:hover {
+    color: #ff385c;
+    transition: all .5s;
+}
+
+.searchBar-input-customSearch{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchBar-input-customSearch .icon {
+    font-size: 18px;
+}
+
+.headerSection .guest {
+    position: relative;
+}
+
+.headerSection .guest .dropdownGuest {
+    position: absolute;
+
+}
+
+.headerSection .dataResult {
+    width: 200px;
+    height: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    line-height: 1.5rem;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    text-align: left;
+    line-height: 2rem;
+    background: hsl(0, 0%, 93%);
+}
+
+.headerSection .dropdown .icon {
+    color: #909090;
+}
+
+.headerSection .dropdown-toggle::after{
+    display: none;
+}
+
+.headerSection .dropdown .btn.show{
+    border-color: #909090;
+}
+
+@media only screen and (min-width: 670px) {
+    .searchBar {
+        width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 670px) {
+    .headerLogo, .searchBar, .navBar{
+        display: none !important;
+    }
+
+    .bottomNav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid hsl(0, 0%, 83%);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+        background: hsl(0, 0%, 93%);
+        display: block;
+    }
+}

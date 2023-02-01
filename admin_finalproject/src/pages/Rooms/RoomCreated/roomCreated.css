@@ -1,0 +1,176 @@
+.roomCreate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.roomCreate-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.newRoomItem{
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+    margin-right: 20px;
+
+}
+
+.newRoomItem>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(151, 150, 150);
+}
+
+.newRoomItem>input{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: transparent !important; 
+}
+
+.roomCreateInput-rooms{
+    display: flex;
+}
+
+.newRoomItem-price{
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-right,
+.body-left{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.body-left{
+    margin-right: 1rem;
+}
+
+.roomCreate-body{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    margin-left: auto;
+    width: 95%;
+
+}
+
+.roomCreate-body .preview {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 0 20px rgba(170, 170, 170, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.roomCreate-body .preview img {
+    object-fit: cover;
+    border-radius: 0;
+    width: 100% !important;
+    transition: all .5s;
+}
+
+.roomCreate-body .preview label {
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #1890ff;
+}
+
+
+.newRoomItem-toggle{
+    width: 300px;
+    margin-top: 10px;
+}
+
+.newRoomItem--utiliti-toggle{
+    display: flex;
+
+}
+
+.roomCreate .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+.roomCreate .MuiFormControl-root p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(151, 150, 150);
+}
+
+.roomCreate .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+    padding-right: 10px;
+}
+
+.roomCreated-button-wrap{
+    width: 100%;
+    text-align: end;
+}
+
+.roomCreated-button{
+    background-color: #1890ff;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .roomCreate-body{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+
+    .newRoomItem>input{
+        width: 250px;
+    }
+
+    .newRoomItem-price{
+        flex-direction: column;
+    }
+    
+
+    .roomCreateInput-rooms{
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .roomCreated-button-wrap{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .roomCreated-button-wrap{
+        text-align: center;
+    }
+    
+}
+

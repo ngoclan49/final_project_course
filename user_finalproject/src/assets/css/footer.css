@@ -1,0 +1,286 @@
+.footer {
+    width: 100%;
+    position: relative;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0;
+}
+
+.footer .videoDiv {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.footer .videoDiv video {
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer .videoDiv video::after {
+    content: '';
+    position: absolute;
+    background: rgba(10, 84, 107, .307);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    mix-blend-mode: multiply;
+}
+
+.footer .secContent {
+    width: 100%;
+    height: max-content;
+    padding: 2rem initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    row-gap: 2rem;
+    z-index: 100;
+}
+
+.footer .contactDiv{
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer .contactDiv .text small{
+    font-size: 13px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.footer .contactDiv .text h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.footer .inputDiv{
+    width: 100%;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.footer .inputDiv input{
+    width: 100%;
+    padding: .5rem .6rem;
+    border-radius: 3rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+.footer .inputDiv input::placeholder{
+    color: #fff;
+    opacity: .5;
+}
+
+.footerCard {
+    position: relative;
+    padding: 1rem 1rem 4rem;
+    gap: 2rem;
+    border-radius: 1rem;
+    background: rgb(240, 240, 246);
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    
+}
+
+.footerIntro {
+    flex-basis: 50%;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.footerIntro .logoDiv img {
+    width: 100px;
+}
+
+.footerParagraph{
+    font-size: 13px;
+    color: hsl(240, 4%, 36%);
+}
+
+.footerSocials {
+    column-gap: .5rem;
+    display: flex;
+}
+
+.footerSocials .icon {
+    color: #000;
+    font-size: 20px;
+}
+
+.footerSocials .icon:hover {
+    color: hsl(199, 100%, 33%);
+}
+
+.secContent .btnOutline {
+    padding: .6rem 1.5rem;
+    background: linear-gradient(to right, hsl(187, 85%, 43%),
+            hsl(199, 100%, 33%));
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+    font-weight: 500;
+    gap: .5rem;
+    width: 100%;
+}
+
+.secContent .btnOutline:hover{
+    background: hsl(199, 100%, 33%);
+    transition: .5s;
+}
+
+.secContent .btnOutline .icon {
+    font-size: 18px;
+}
+
+.footerLinks{
+    flex-basis: 50%;
+    width: 100%;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+}
+
+.footerLinks .groupTitle{
+    display: block;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: .5rem;
+}
+
+.footerLinks .footerList{
+    font-size: 15px;
+    color: hsl(240, 4%, 36%);
+    transition: .3s ease-in-out;
+}
+
+.footerList .icon {
+    font-size: 15px;
+    color: rgb(190, 190, 190);
+}
+
+.footerList:hover{
+    color: hsl(199, 100%, 33%);
+    transform: translateX(7px);
+}
+
+.footerList:hover .icon {
+    color: hsl(187, 85%, 43%);
+}
+
+.footerDiv {
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: .5rem 2rem;
+    background-color: hsl(187, 85%, 43%);
+}
+
+.footerDiv small {
+    font-size: 10px;
+    color: #fff;
+}
+
+@media screen and (min-width: 500px) {
+    .footerLinks{
+        grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 1rem;
+    }
+
+    .footerDiv{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    small {
+        font-size: 14px;
+        color: #fff;
+    }
+}
+
+@media screen and (min-width: 660px) {
+    .footer .contactDiv{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer .contactDiv .inputDiv {
+        width: max-content;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .footer .contactDiv .inputDiv input {
+        width: 60%;
+    }
+
+    .inputDiv .btnOutline{
+        width: max-content;
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .footer {
+        padding: 5rem 0;
+    }
+    .footer .footerCard{
+        flex-direction: row;
+    }
+
+    .footer .footerLinks {
+        grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .footer .footerCard {
+        padding: 3rem 1rem;
+    }
+
+    .footerIntro .footerParagraph {
+        font-size: 15px;
+        color: hsl(240, 4%, 36%);
+    }
+
+    .footerIntro .footerSocials{
+        column-gap: .5rem;
+    }
+
+    .footerIntro .footerSocials .icon{
+        color: hsl(240, 4%, 36%);
+        font-size: 25px;
+    }
+
+    .footerIntro .footerSocials .icon:hover{
+        color: hsl(199, 100%, 33%);
+    }
+
+    .footerLinks .footerList{
+        font-size: 16px;
+        padding: 5px 0;
+    }
+
+}

@@ -1,0 +1,26 @@
+.roomEdit-body .preview {
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 0 20px rgba(170, 170, 170, 0.2);
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.roomEdit-body .preview img {
+    object-fit: cover;
+    border-radius: 0;
+    width: 100% !important;
+    transition: all .5s;
+}
+
+.roomEdit-body .preview label {
+   
+}

@@ -1,0 +1,73 @@
+.card-createUser {
+    justify-content: space-between !important;
+    align-items:initial !important;
+}
+
+.card-createUser .preview {
+    width: 100px !important;
+    height: 100px;
+    object-fit: cover;
+    box-shadow: none;
+}
+
+
+.card-createUser .preview img {
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    margin-bottom: 0;
+}
+
+.card-createUser .preview label{
+    position: absolute;
+    left: 40%;
+}
+
+
+.card-createUser .card-header {
+    margin-top: 1rem;
+}
+
+.card-createUser .card-header .col-8{
+    display: flex;
+    justify-content: flex-start !important;
+}
+.createButton {
+    display: flex;
+    align-items: center;
+}
+
+.createButton h3 {
+    display: inline;
+    margin-right: 10px;
+}
+
+.createUserId {
+    display: flex;
+    align-items: center;
+}
+
+.createUserId .form-group {
+    margin-bottom: 0;
+    width: 100px;
+}
+
+.createUserId-input{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.createUserId-input label{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+/* .createUser-headerWrap{
+    a
+} */

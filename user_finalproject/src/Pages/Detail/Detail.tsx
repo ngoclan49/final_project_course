@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { forwardRef, useEffect, useState } from 'react';
+import { Container, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { Form, useLocation } from 'react-router-dom';
 import { AppDispatch, RootState } from '../../redux/configureStore';
 import {
   getCommentDetailApi,
@@ -35,6 +35,8 @@ const Detail = (props: Props) => {
     (state: RootState) => state.roomReducer
   );
 
+  const [smShow, setSmShow] = useState(false);
+  let [countCustomer, setCountCustomer] = useState(1);
   const { userLogin } = useSelector((state: RootState) => state.userReducer);
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
@@ -280,8 +282,8 @@ const Detail = (props: Props) => {
         </div>
         <div className='book-room'>
           <div
-            className='box-book'
-            style={{ height: '150px', width: '300px', border: '1px solid' }}
+            className='box-book p-2'
+            style={{ width: '300px', border: '1px solid' }}
           >
             <div className='flex justify-content-between mt-1'>
               <h6>${giaTien} /Đêm</h6>
@@ -291,6 +293,7 @@ const Detail = (props: Props) => {
               </h6>
             </div>
             <div className='searchBar-input searchBar-input-custom'>
+              <h6>Nhận phòng | Trả phòng</h6>
               <DatePicker
                 selected={startDate}
                 onChange={onChange}
@@ -300,8 +303,50 @@ const Detail = (props: Props) => {
                 selectsRange
                 dateFormat='dd/MM/yyyy'
                 minDate={moment().toDate()}
+                className={'datePicker'}
               />
             </div>
+            <div className='select-khach mt-2'>
+              <h6>Khách</h6>
+              <div
+                className='select-box p-2  border border-dark cursor-pointer'
+                onClick={() => (smShow ? setSmShow(false) : setSmShow(true))}
+              >
+                {`${countCustomer} Khách`}
+              </div>
+              {smShow && (
+                <div
+                  className='flex justify-content-between border border-dark p-1'
+                  onMouseLeave={() => setSmShow(false)}
+                >
+                  <div className='infoCustomer'>
+                    <h6>Người lớn</h6>
+                    <p>Từ 13 trở lên</p>
+                  </div>
+                  <div className='upDownCount flex align-items-center p-2'>
+                    <button
+                      className='btn btn-success rounded-circle'
+                      onClick={() => setCountCustomer(countCustomer + 1)}
+                    >
+                      +
+                    </button>
+                    <h6>{countCustomer}</h6>
+                    <button
+                      className='btn btn-success rounded-circle'
+                      onClick={() => {
+                        setCountCustomer(countCustomer - 1);
+                        if (countCustomer < 2) {
+                          setCountCustomer(countCustomer);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <button className='btn btn-success w-100 mt-2'>Đặt phòng</button>
           </div>
         </div>
       </div>

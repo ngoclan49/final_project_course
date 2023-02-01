@@ -38,3 +38,34 @@
   margin-bottom: 2px;
   margin-right: 8px;
 }
+
+.book-room .searchBar-input {
+  border: 1px solid black !important;
+  width: 100% !important;
+}
+
+.book-room .searchBar-input > h6 {
+  font-size: 0.8rem;
+  cursor: default;
+  margin-left: -15px;
+}
+
+.book-room .searchBar-input input {
+  text-align: center;
+  cursor: pointer;
+}
+
+.select-box {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.upDownCount button:first-of-type {
+  margin-right: 0;
+}
+
+.upDownCount h6 {
+  margin-top: 9px;
+  padding: 0 10px;
+}

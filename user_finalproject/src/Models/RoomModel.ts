@@ -36,3 +36,12 @@ export type UserComment = {
   noiDung: string;
   saoBinhLuan: 0;
 };
+
+export type ListRooms = {
+  id: number;
+  maPhong: number;
+  ngayDen: string;
+  ngayDi: string;
+  soLuongKhach: number;
+  maNguoiDung: number;
+};

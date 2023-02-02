@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
+  ListRooms,
   RoomModel,
   RoomModelComment,
   UserComment,
@@ -7,6 +8,7 @@ import {
 import { http } from '../../util/config';
 import { AppDispatch } from '../configureStore';
 import { toast } from 'react-toastify';
+import { history } from '../..';
 
 export type RoomState = {
   rooms: RoomModel[];
@@ -14,6 +16,8 @@ export type RoomState = {
   roomPagination: RoomModel[];
   roomDetail: RoomModel;
   roomDetailComment: RoomModelComment[];
+  listRooms: ListRooms[];
+  isBookReducer: boolean;
 };
 
 const initialState: RoomState = {
@@ -42,6 +46,8 @@ const initialState: RoomState = {
     hinhAnh: '',
   },
   roomDetailComment: [],
+  listRooms: [],
+  isBookReducer: false,
 };
 
 const roomReducer = createSlice({
@@ -75,6 +81,15 @@ const roomReducer = createSlice({
     ) => {
       state.roomDetailComment = action.payload;
     },
+    getListRoomsAction: (
+      state: RoomState,
+      action: PayloadAction<ListRooms[]>
+    ) => {
+      state.listRooms = action.payload;
+    },
+    getIsBook: (state: RoomState, action: PayloadAction<boolean>) => {
+      state.isBookReducer = action.payload;
+    },
   },
 });
 
@@ -84,6 +99,8 @@ export const {
   getRoomPaginationAction,
   getRoomDetailPaginationAction,
   getCommentDetailPaginationAction,
+  getListRoomsAction,
+  getIsBook,
 } = roomReducer.actions;
 
 export default roomReducer.reducer;
@@ -160,6 +177,37 @@ export const postCommentUser = (user: UserComment) => {
       const res = await http.post('/api/binh-luan', user).then((response) => {
         dispatch(getCommentDetailApi(user.id));
       });
+    } catch (error) {
+      toast.error('Login fail. Try again');
+    }
+  };
+};
+
+export const getListRooms = () => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const result = await http.get(`/api/dat-phong`);
+      const content: ListRooms[] = result.data.content;
+      const action: PayloadAction<ListRooms[]> = getListRoomsAction(content);
+      dispatch(action);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postDetailBooking = (detailRoom: ListRooms) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await http
+        .post('/api/dat-phong', detailRoom)
+        .then((response) => {
+          const action: PayloadAction<boolean> = getIsBook(true);
+          history.push('/');
+          dispatch(getListRooms());
+          dispatch(action);
+        })
+        .catch((error) => toast.error('Login fail. Try again'));
     } catch (error) {
       toast.error('Login fail. Try again');
     }

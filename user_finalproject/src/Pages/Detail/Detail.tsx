@@ -5,11 +5,14 @@ import { Form, useLocation } from 'react-router-dom';
 import { AppDispatch, RootState } from '../../redux/configureStore';
 import {
   getCommentDetailApi,
+  getListRooms,
   getRoomDetailApi,
   postCommentUser,
+  postDetailBooking,
 } from '../../redux/roomReducer/roomReducer';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import { toast } from 'react-toastify';
 
 import {
   FaStar,
@@ -19,6 +22,7 @@ import {
   FaCalendarCheck,
   FaLanguage,
   FaAngleRight,
+  FaAngleDown,
 } from 'react-icons/fa';
 
 import '../../assets/css/detail.css';
@@ -31,18 +35,15 @@ const Detail = (props: Props) => {
   const { pathname } = useLocation();
   const [userComment, setUserComment] = useState('');
   const paramId = Number(pathname?.replace('/detail/', ''));
-  const { roomDetail, roomDetailComment } = useSelector(
-    (state: RootState) => state.roomReducer
-  );
+  const { roomDetail, roomDetailComment, listRooms, isBookReducer } =
+    useSelector((state: RootState) => state.roomReducer);
+  const [isBook, setIsBook] = useState(false);
 
   const [smShow, setSmShow] = useState(false);
   let [countCustomer, setCountCustomer] = useState(1);
   const { userLogin } = useSelector((state: RootState) => state.userReducer);
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
-
-  console.log('userLogin : ', userLogin);
-  console.log('roomDetail : ', roomDetail);
 
   const {
     id,
@@ -112,7 +113,68 @@ const Detail = (props: Props) => {
     setEndDate(end);
   };
 
+  const convertDate = (date: string) => {
+    const day = new Date(date);
+    const dayAfterConvert = day.toISOString();
+    return dayAfterConvert;
+  };
+
+  const convertToDateString = (date: string) => {
+    const day = new Date(date);
+    const dayAfterConvert = day.toLocaleDateString();
+    return dayAfterConvert;
+  };
+
+  const handleBookRoom = () => {
+    if (startDate && roomDetail && startDate && endDate && listRooms) {
+      const detailBookRoom = {
+        id: 0,
+        maPhong: roomDetail.id,
+        ngayDen: startDate.toString(),
+        ngayDi: endDate.toString(),
+        soLuongKhach: countCustomer,
+        maNguoiDung: Number(userLogin.id),
+      };
+
+      let isBooking = false;
+      listRooms.forEach((room, index) => {
+        if (room.maPhong === detailBookRoom.maPhong) {
+          const dateOfRoomDen = convertToDateString(room.ngayDen);
+          const dateOfRoomDi = convertToDateString(room.ngayDi);
+          const dateOfRoomDetailDen = convertToDateString(
+            detailBookRoom.ngayDen
+          );
+          const dateOfRoomDetailDi = convertToDateString(detailBookRoom.ngayDi);
+          isBooking =
+            dateOfRoomDen === dateOfRoomDetailDen &&
+            dateOfRoomDi === dateOfRoomDetailDi
+              ? true
+              : false;
+        }
+      });
+
+      if (!isBooking) {
+        let converDetailBookRoom = {
+          ...detailBookRoom,
+          ngayDen: convertDate(detailBookRoom.ngayDen),
+          ngayDi: convertDate(detailBookRoom.ngayDi),
+        };
+        dispatch(postDetailBooking(converDetailBookRoom));
+        toast.success('Đặt phòng thành công');
+      } else {
+        toast.error('Phòng đã được đặt');
+      }
+    }
+  };
+
+  const oneDay = 1000 * 60 * 60 * 24;
+  const resultDay =
+    startDate &&
+    endDate &&
+    Math.round(endDate?.getTime() - startDate?.getTime()) / oneDay;
+
   useEffect(() => {
+    dispatch(getListRooms());
     dispatch(getRoomDetailApi(paramId));
     dispatch(getCommentDetailApi(paramId));
   }, []);
@@ -137,10 +199,10 @@ const Detail = (props: Props) => {
       </ul>
       <img src={hinhAnh} alt='' style={{ height: '400px' }} />
       <div
-        className='d-flex justify-content-between mt-5'
+        className='d-flex flex-lg-row flex-column-reverse flex-lg-row  justify-content-between mt-5'
         style={{ gap: '30px' }}
       >
-        <div className='detail-room' style={{ flexGrow: 2 }}>
+        <div className='detail-room col-lg-7 col-12' style={{ flexGrow: 2 }}>
           <div className='d-flex justify-content-between '>
             <div>
               <h5>Toàn bộ - căn hộ - condo - Chủ nhà</h5>
@@ -280,9 +342,9 @@ const Detail = (props: Props) => {
             </button>
           </div>
         </div>
-        <div className='book-room'>
+        <div className='book-room col-lg-4 col-12'>
           <div
-            className='box-book p-2'
+            className='box-book p-2 rounded w-100 w-lg-none mt-3 mt-lg-0'
             style={{ width: '300px', border: '1px solid' }}
           >
             <div className='flex justify-content-between mt-1'>
@@ -309,10 +371,13 @@ const Detail = (props: Props) => {
             <div className='select-khach mt-2'>
               <h6>Khách</h6>
               <div
-                className='select-box p-2  border border-dark cursor-pointer'
+                className='select-box p-2  border border-dark cursor-pointer flex justify-content-between align-items-center'
                 onClick={() => (smShow ? setSmShow(false) : setSmShow(true))}
               >
-                {`${countCustomer} Khách`}
+                <span>{`${countCustomer} Khách`}</span>
+                <span>
+                  <FaAngleDown className='icon' />
+                </span>
               </div>
               {smShow && (
                 <div
@@ -346,7 +411,35 @@ const Detail = (props: Props) => {
                 </div>
               )}
             </div>
-            <button className='btn btn-success w-100 mt-2'>Đặt phòng</button>
+
+            <button
+              className='btn btn-success w-100 mt-2'
+              onClick={handleBookRoom}
+              disabled={!resultDay ? true : false}
+            >
+              Đặt phòng
+            </button>
+            {resultDay ? (
+              <>
+                <div className='flex justify-content-between mt-1'>
+                  <h6 style={{ borderBottom: '1px solid' }}>
+                    ${giaTien} x {resultDay} đêm
+                  </h6>
+                  <h6>${giaTien * resultDay}</h6>
+                </div>
+                <div className='flex justify-content-between mt-1'>
+                  <h6 style={{ borderBottom: '1px solid' }}>Phí dịch vụ</h6>
+                  <h6>$31</h6>
+                </div>
+                <hr />
+                <div className='flex justify-content-between mt-1'>
+                  <h6>Tổng</h6>
+                  <h6>${giaTien * resultDay + 31}</h6>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

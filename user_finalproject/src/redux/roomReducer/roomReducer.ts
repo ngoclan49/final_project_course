@@ -203,7 +203,7 @@ export const postDetailBooking = (detailRoom: ListRooms) => {
         .post('/api/dat-phong', detailRoom)
         .then((response) => {
           const action: PayloadAction<boolean> = getIsBook(true);
-          history.push('/');
+          toast.success('Dat phong thanh cong');
           dispatch(getListRooms());
           dispatch(action);
         })
